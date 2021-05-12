@@ -2,7 +2,8 @@
   "name": "freepay.js",
   "description": "A module to communicate with the danish payment service provider Freepay",
   "version": "1.0.4",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/n0ahk/freepay-js.git"
