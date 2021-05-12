@@ -3,6 +3,10 @@
   "description": "A module to communicate with the danish payment service provider Freepay",
   "version": "1.0.3",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/n0ahk/freepay-js.git"
+  },
   "scripts": {
     "build": "tsc --build"
   },
