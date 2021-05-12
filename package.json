@@ -1,0 +1,15 @@
+{
+  "name": "freepay.js",
+  "description": "A module to communicate with the danish payment service provider Freepay",
+  "version": "1.0.3",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc --build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
+}
