@@ -82,7 +82,7 @@ const response = await client.deleteRecurringPayment("tokenId");
 // Response can be seen here: https://mw.freepay.dk/content/api.html#operation/Authorization_Recurring
 ```
 
-##
+## Make recurring authorization
 
 ```js
 const response = await client.makeAuthorization("tokenId", {

@@ -1,7 +1,7 @@
 {
   "name": "freepay.js",
   "description": "A module to communicate with the danish payment service provider Freepay",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "repository": {
