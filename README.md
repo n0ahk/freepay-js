@@ -7,6 +7,19 @@ Easily use the [Freepay](https://freepay.dk) API with JavaScript.
 ```js
 const freepay = require("freepay.js");
 const client = new Freepay("your-api-key-from-dashboard");
+
+// Get authorization example
+
+const authorization = client
+  .getAuthorization("00000000-0000-0000-0000-000000000000")
+  .then((response) => {
+    // Do something with response.
+  })
+  .catch((error) => console.error);
+
+// Or async
+
+const authorization = await client.getAuthorization("00000000-0000-0000-0000-000000000000");
 ```
 
 ## Tasks
