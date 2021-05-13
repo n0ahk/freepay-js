@@ -1,9 +1,9 @@
 {
   "name": "freepay.js",
   "description": "A module to communicate with the danish payment service provider Freepay",
-  "version": "1.0.4",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "version": "1.0.6",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/n0ahk/freepay-js.git"
@@ -11,8 +11,11 @@
   "scripts": {
     "build": "tsc --build"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "freepay",
+    "payment"
+  ],
+  "author": "Noah Kornelius Svanholm",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.1"

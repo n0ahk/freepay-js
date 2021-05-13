@@ -1,6 +1,13 @@
 # Freepay.js
 
-Easaily use the [Freepay](https://freepay.dk) API with JavaScript.
+Easily use the [Freepay](https://freepay.dk) API with JavaScript.
+
+## Code Example
+
+```js
+const freepay = require("freepay.js");
+const client = new Freepay("your-api-key-from-dashboard");
+```
 
 ## Tasks
 
