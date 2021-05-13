@@ -20,6 +20,8 @@ const authorization = client
 const authorization = await client.getAuthorization("00000000-0000-0000-0000-000000000000");
 ```
 
+For other code examples check the [wiki](https://github.com/n0ahk/freepay-js/blob/main/WIKI.md).
+
 ## Tasks
 
 - Paymentlink

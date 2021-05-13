@@ -119,7 +119,7 @@ export default class freepay {
   }
   async creditAuthorization(authorizationIdentifier: string, options: creditAuthorization) {
     try {
-      const response = await this.api.post(`https://mw.freepay.dk/api/authorization/${authorizationIdentifier}/credit`, {
+      const response = await this.api.post(`/authorization/${authorizationIdentifier}/credit`, {
         Amount: options.Amount,
         Comment: options?.Comment,
       });
@@ -146,7 +146,11 @@ export default class freepay {
   }
   async makeAuthorization(tokenId: string, options: makeAuthorization) {
     try {
-      const response = await this.api.post(`/recurring/${tokenId}/authorize`);
+      const response = await this.api.post(`/recurring/${tokenId}/authorize`, {
+        Amount: options.Amount,
+        OrderId: options.OrderId,
+        Currency: options?.Currency,
+      });
       return response.data;
     } catch (error) {
       throw Error(error);
