@@ -4,8 +4,12 @@ Easily use the [Freepay](https://freepay.dk) API with JavaScript.
 
 ## Code Example
 
+```
+npm i freepay.js
+```
+
 ```js
-const freepay = require("freepay.js");
+const freepay = require("freepay.js").default;
 const client = new Freepay("your-api-key-from-dashboard");
 
 // Get authorization example
