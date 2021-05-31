@@ -9,7 +9,7 @@ npm i freepay.js
 ```
 
 ```js
-const freepay = require("freepay.js").default;
+const Freepay = require("freepay.js").default;
 const client = new Freepay("your-api-key-from-dashboard");
 
 // Get authorization example
@@ -18,7 +18,7 @@ const authorization = client
   .then((response) => {
     // Do something with response.
   })
-  .catch((error) => console.error);
+  .catch((error) => console.error(error));
 
 // Or async
 const authorization = await client.getAuthorization("00000000-0000-0000-0000-000000000000");
