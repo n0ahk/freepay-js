@@ -3,7 +3,7 @@
 See all the functions in action. All examples are shown with async, but you can do it with promises also.
 
 ```js
-const freepay = require("freepay.js").default;
+const Freepay = require("freepay.js").default;
 const client = new Freepay("your-api-key-from-dashboard");
 ```
 
