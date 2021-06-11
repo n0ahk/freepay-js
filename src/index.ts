@@ -3,6 +3,7 @@ import paymentlink from "./interfaces/paymentlink";
 import authorizationCapture from "./interfaces/authorizationCapture";
 import creditAuthorization from "./interfaces/creditAuthorization";
 import makeAuthorization from "./interfaces/makeAuthorization";
+import authorization from "./interfaces/authorization";
 export default class freepay {
   constructor(private key: string) {
     this.key = key;
@@ -47,88 +48,128 @@ export default class freepay {
         },
         EnforceLanguage: options?.EnforceLanguage,
       };
-      const response = await axios.post("https://gw.freepay.dk/api/payment", data, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Basic " + btoa(this.key),
-        },
-      });
+      const response = await axios.post(
+        "https://gw.freepay.dk/api/payment",
+        data,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Basic " + btoa(this.key),
+          },
+        }
+      );
       return response.data;
     } catch (error) {
       return error;
     }
   }
 
-  async getAuthorization(authorizationIdentifier: string) {
+  async getAuthorization(
+    authorizationIdentifier: string
+  ): Promise<authorization> {
     try {
-      const response = await this.api.get(`/authorization/${authorizationIdentifier}`);
+      const response = await this.api.get(
+        `/authorization/${authorizationIdentifier}`
+      );
       return response.data;
     } catch (error) {
       throw Error(error);
     }
   }
-  async voidAuthorization(authorizationIdentifier: string) {
+  async voidAuthorization(authorizationIdentifier: string): Promise<JSON> {
     try {
-      const response = await this.api.delete(`/authorization/${authorizationIdentifier}`);
+      const response = await this.api.delete(
+        `/authorization/${authorizationIdentifier}`
+      );
       return response.data;
     } catch (error) {
       throw Error(error);
     }
   }
-  async getAuthorizationCapture(authorizationIdentifier: string, captureId: string) {
+  async getAuthorizationCapture(
+    authorizationIdentifier: string,
+    captureId: string
+  ): Promise<JSON> {
     try {
-      const response = await this.api.get(`/authorization/${authorizationIdentifier}/capture/${captureId}`);
+      const response = await this.api.get(
+        `/authorization/${authorizationIdentifier}/capture/${captureId}`
+      );
       return response.data;
     } catch (error) {
       throw Error(error);
     }
   }
-  async getAuthorizationCaptures(authorizationIdentifier: string) {
+  async getAuthorizationCaptures(
+    authorizationIdentifier: string
+  ): Promise<JSON> {
     try {
-      const response = await this.api.get(`/authorization/${authorizationIdentifier}/capture`);
+      const response = await this.api.get(
+        `/authorization/${authorizationIdentifier}/capture`
+      );
       return response.data;
     } catch (error) {
       throw Error(error);
     }
   }
-  async captureAuthorization(authorizationIdentifier: string, options: authorizationCapture) {
+  async captureAuthorization(
+    authorizationIdentifier: string,
+    options: authorizationCapture
+  ): Promise<JSON> {
     try {
-      const response = await this.api.post(`/authorization/${authorizationIdentifier}/capture`, {
-        Amount: options.Amount,
-      });
+      const response = await this.api.post(
+        `/authorization/${authorizationIdentifier}/capture`,
+        {
+          Amount: options.Amount,
+        }
+      );
       return response.data;
     } catch (error) {
       throw Error(error);
     }
   }
-  async getAuthorizationCredit(authorizationIdentifier: string, creditId: string) {
+  async getAuthorizationCredit(
+    authorizationIdentifier: string,
+    creditId: string
+  ): Promise<JSON> {
     try {
-      const response = await this.api.get(`/authorization/${authorizationIdentifier}/credit/${creditId}`);
+      const response = await this.api.get(
+        `/authorization/${authorizationIdentifier}/credit/${creditId}`
+      );
       return response.data;
     } catch (error) {
       throw Error(error);
     }
   }
-  async getAuthorizationCredits(authorizationIdentifier: string) {
+  async getAuthorizationCredits(
+    authorizationIdentifier: string
+  ): Promise<JSON> {
     try {
-      const response = await this.api.get(`/authorization/${authorizationIdentifier}/credit`);
+      const response = await this.api.get(
+        `/authorization/${authorizationIdentifier}/credit`
+      );
       return response.data;
     } catch (error) {
       throw Error(error);
     }
   }
-  async creditAuthorization(authorizationIdentifier: string, options: creditAuthorization) {
+  async creditAuthorization(
+    authorizationIdentifier: string,
+    options: creditAuthorization
+  ): Promise<JSON> {
     try {
-      const response = await this.api.post(`/authorization/${authorizationIdentifier}/credit`, {
-        Amount: options.Amount,
-        Comment: options?.Comment,
-      });
+      const response = await this.api.post(
+        `/authorization/${authorizationIdentifier}/credit`,
+        {
+          Amount: options.Amount,
+          Comment: options?.Comment,
+        }
+      );
       return response.data;
     } catch (error) {
       throw Error(error);
     }
   }
-  async getRecurringPayment(tokenId: string) {
+  async getRecurringPayment(tokenId: string): Promise<JSON> {
     try {
       const response = await this.api.get(`/recurring/${tokenId}`);
       return response.data;
@@ -136,7 +177,7 @@ export default class freepay {
       throw Error(error);
     }
   }
-  async deleteRecurringPayment(tokenId: string) {
+  async deleteRecurringPayment(tokenId: string): Promise<JSON> {
     try {
       const response = await this.api.delete(`/recurring/${tokenId}`);
       return response.data;
@@ -144,7 +185,10 @@ export default class freepay {
       throw Error(error);
     }
   }
-  async makeAuthorization(tokenId: string, options: makeAuthorization) {
+  async makeAuthorization(
+    tokenId: string,
+    options: makeAuthorization
+  ): Promise<JSON> {
     try {
       const response = await this.api.post(`/recurring/${tokenId}/authorize`, {
         Amount: options.Amount,
