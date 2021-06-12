@@ -4,6 +4,7 @@ import authorizationCapture from "./interfaces/authorizationCapture";
 import creditAuthorization from "./interfaces/creditAuthorization";
 import makeAuthorization from "./interfaces/makeAuthorization";
 import authorization from "./interfaces/authorization";
+
 export default class freepay {
   constructor(private key: string) {
     this.key = key;

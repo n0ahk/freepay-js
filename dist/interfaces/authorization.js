@@ -1,0 +1,23 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var cardType;
+(function (cardType) {
+    cardType[cardType["Unknown"] = -1] = "Unknown";
+    cardType[cardType["AmericanExpressDanish"] = 0] = "AmericanExpressDanish";
+    cardType[cardType["AmericanExpressForeign"] = 1] = "AmericanExpressForeign";
+    cardType[cardType["DinersDanish"] = 2] = "DinersDanish";
+    cardType[cardType["DinersForeign"] = 3] = "DinersForeign";
+    cardType[cardType["MastercardForeign"] = 4] = "MastercardForeign";
+    cardType[cardType["MastercardDanish"] = 5] = "MastercardDanish";
+    cardType[cardType["VisaDankort"] = 6] = "VisaDankort";
+    cardType[cardType["VisaElectronDanish"] = 7] = "VisaElectronDanish";
+    cardType[cardType["VisaElectronForeign"] = 8] = "VisaElectronForeign";
+    cardType[cardType["VisaDanish"] = 9] = "VisaDanish";
+    cardType[cardType["VisaForeign"] = 10] = "VisaForeign";
+    cardType[cardType["JCB"] = 11] = "JCB";
+    cardType[cardType["ElectronOrVisaForeign"] = 12] = "ElectronOrVisaForeign";
+    cardType[cardType["Dankort"] = 13] = "Dankort";
+    cardType[cardType["MaestroDanish"] = 14] = "MaestroDanish";
+    cardType[cardType["MaestroForeign"] = 15] = "MaestroForeign";
+    cardType[cardType["MastercardDebitDanish"] = 16] = "MastercardDebitDanish";
+})(cardType || (cardType = {}));

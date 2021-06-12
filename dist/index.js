@@ -153,7 +153,7 @@ class freepay {
     creditAuthorization(authorizationIdentifier, options) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const response = yield this.api.post(`https://mw.freepay.dk/api/authorization/${authorizationIdentifier}/credit`, {
+                const response = yield this.api.post(`/authorization/${authorizationIdentifier}/credit`, {
                     Amount: options.Amount,
                     Comment: options === null || options === void 0 ? void 0 : options.Comment,
                 });
@@ -189,7 +189,11 @@ class freepay {
     makeAuthorization(tokenId, options) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const response = yield this.api.post(`/recurring/${tokenId}/authorize`);
+                const response = yield this.api.post(`/recurring/${tokenId}/authorize`, {
+                    Amount: options.Amount,
+                    OrderId: options.OrderId,
+                    Currency: options === null || options === void 0 ? void 0 : options.Currency,
+                });
                 return response.data;
             }
             catch (error) {
